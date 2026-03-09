@@ -24,17 +24,18 @@ public class ERyder {
 
     
     public void printBikeDetails() {
-        System.out.println("Bike ID: " + bikeID);
+    System.out.println("Bike ID: " + bikeID);
     System.out.println("Battery Level: " + batteryLevel + "%");
     System.out.println("Is Available: " + isAvailable);
     System.out.println("KM Driven: " + kmDriven + "km\n");
     }
 
     public void setBatteryLevel(int bat) {
-        if (bat >= 0 && bat <= 100) {
-            batteryLevel = bat;
-        } else {
-            batteryLevel = 0;
-        }
+        if (bat <0)
+            batteryLevel=0;
+        else if (bat >100)
+            batteryLevel=100;
+        else
+            batteryLevel=bat;
     }
 }
