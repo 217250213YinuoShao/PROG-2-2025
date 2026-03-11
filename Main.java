@@ -11,5 +11,9 @@ public class Main {
 
         bike2.ride();
         bike2.printBikeDetails();
+        bike2.printRideDetails(15);
+        
+        double fare = bike2.calculateFare();
+        System.out.println("Ride fare: $" + fare);
+    }
      }
-}
