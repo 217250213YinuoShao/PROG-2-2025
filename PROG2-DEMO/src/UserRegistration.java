@@ -28,7 +28,7 @@ public class UserRegistration{
     private String expiry;
 
     public void registration(){
-        Scanner sc=new Scanner(System.in);
+        Scanner sc =new Scanner(System.in);
         System.out.println("Welcome to ERyder Registration");
         System.out.println("Here are your two options:");
         System.out.println("1.Register as a regular User");
