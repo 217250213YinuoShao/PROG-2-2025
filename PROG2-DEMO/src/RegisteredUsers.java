@@ -11,7 +11,7 @@ public class RegisteredUsers {
     private String cardProvider;
     private String cvv;
     private String userType;
-    private String[] lastThreeTrips;
+    private String[] lastThreeTrips; 
 
     public RegisteredUsers(String fullName, String emailAddress, String dateOfBirth,String cardNumber, String cardExpiryDate, String cardProvider,String cvv, String userType, String[] lastThreeTrips) {
         this.fullName = fullName;

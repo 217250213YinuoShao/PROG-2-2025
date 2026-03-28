@@ -35,7 +35,7 @@ public class UserRegistration{
         System.out.println("2.Register as a VIP User");
         System.out.println("Please enter your choice(1 or 2)");
         int choice = sc.nextInt();
-        sc.nextLine();
+        sc.nextLine(); 
         if (choice==1){
             userType="Regular User";
         }
