@@ -1,17 +1,17 @@
-
-    import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
 public class AdminPanel {
-
+private BikeService bikeService;
     List<RegisteredUsers> registeredUsersList = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
     public void userManagementOptions() {
-        System.out.println("Welcome to E-Ryder Administrator Panel.");
-
+        System.out.println("Welcome to E-Ryder Administrator Panel.");}
+public AdminPanel() {
+        this.bikeService = new BikeService();
         while (true) {
             System.out.println("What do you want to do?\n");
             System.out.println("1. Add New Users");
@@ -19,7 +19,9 @@ public class AdminPanel {
             System.out.println("3. Remove Registered Users");
             System.out.println("4. Update Registered Users");
             System.out.println("5. Demo the Bike Rental System");
-            System.out.println("6. EXIT");
+            System.out.println("6. View System Logs");
+            System.out.println("7. Manage Pending Bike Requests");
+            System.out.println("8. EXIT");
             System.out.print("Enter your choice: ");
 
             int choice=sc.nextInt();
@@ -41,7 +43,32 @@ public class AdminPanel {
                       BikeRental bikeRental = new BikeRental();
                      bikeRental.simulateApplicationInput();
                         break;
-                case 6:
+                        case 7:
+    System.out.println("\n--- Manage Pending Requests ---");
+    System.out.println("1. View Queue");
+    System.out.println("2. Update Queue (Remove First)");
+    System.out.println("3. Back to Main Menu");
+    System.out.print("Enter your choice: ");
+
+    int subChoice = sc.nextInt();
+    sc.nextLine();
+
+    switch(subChoice) {
+        case 1:
+            bikeService.viewQueue();
+            break;
+        case 2:
+            bikeService.removeTrip();
+            System.out.println("First request removed.");
+            break;
+        case 3:
+            System.out.println("Returning to main menu...");
+            break;
+        default:
+            System.out.println("Invalid choice.");
+    }
+    break;
+                case 8:
                     System.out.println("EXIT");
                     sc.close();
                     return;
