@@ -13,9 +13,10 @@ public class RegisteredUsers {
     private String userType;
     private String[] lastThreeTrips; 
 
-    public RegisteredUsers(String fullName, String emailAddress, String dateOfBirth,String cardNumber, String cardExpiryDate, String cardProvider,String cvv, String userType, String[] lastThreeTrips) {
+    public RegisteredUsers(String fullName, String emailAddress){
         this.fullName = fullName;
-        this.emailAddress = emailAddress;
+        this.emailAddress = emailAddress;}
+        public RegisteredUsers(String dateOfBirth,String cardNumber,String cardExpiryDate,String cardProvider,String cvv,String userType,String[]lastThreeTrips){
         this.dateOfBirth = dateOfBirth;
         this.cardNumber = cardNumber;
         this.cardExpiryDate = cardExpiryDate;
@@ -114,5 +115,10 @@ public String[] getLastThreeTrips() {
         "lastThreeTrips=" + Arrays.toString(lastThreeTrips) +
         "}";
 }
-    
+    public double calculateFare(double baseFare) {
+         return baseFare;
+     }
+     public void displayUserType() {
+         System.out.println("Regular User");
+     }
 }

@@ -107,6 +107,9 @@ sc.nextLine();
             String userType = sc.nextLine();
 
             String[] lastThreeTrips = new String[3];
+            RegisteredUsers newUser = new RegisteredUsers(fullName, email);
+registeredUsersList.add(newUser);
+System.out.println("User " + (i + 1) + " added successfully!");
 
             for (int j = 0; j < 3; j++) {
                 System.out.println("\n Trip " + (j + 1) + " Details");
@@ -136,7 +139,8 @@ sc.nextLine();
                 lastThreeTrips[j] = tripSb.toString();
             }
 
-            RegisteredUsers newUser = new RegisteredUsers(fullName, email, dob, cardNum,cardExp, cardPro, cvv, userType, lastThreeTrips);
+            RegisteredUsers newUsers = new RegisteredUsers(fullName, email);
+            
             registeredUsersList.add(newUser);
             System.out.println("User " + (i + 1) + " added successfully!");
         }
@@ -248,6 +252,16 @@ sc.nextLine();
             target.setCardExpiryDate(newCardExp);
 
         System.out.println("User updated successfully!");
+
+    }
+    
+    public static void main(String[] args) {
+       
+        UserService userService = new UserService();
+        RentalService rentalService = new RentalService();
+        userService.addNewUsers() ;
+          rentalService.simulateApplicationInput();
     }
 }
+
 

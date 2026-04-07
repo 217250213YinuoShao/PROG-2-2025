@@ -3,10 +3,11 @@ import java.util.LinkedList;
 import java.util.Iterator;
 
 public class RentalService {
+
     private LocalDateTime tripStartTime;
     private ActiveRental activeRental;
     private LinkedList<ActiveRental> activeRentalsList = new LinkedList<>();
-
+    public static final double BASE_FARE = 3.0;
     public void reserveBike(String bID, String emailAddress) {
         if (bID != null) {
             for (Bike b : BikeDatabase.bikes) {
@@ -25,7 +26,8 @@ public class RentalService {
         }
     }
 
-    public void removeTrip(String bID) {
+    public void removeTrip(String bID,RegisteredUsers user ) {
+        double finalFare = user.calculateFare(BASE_FARE);
         Iterator<ActiveRental> it = activeRentalsList.iterator();
         while (it.hasNext()) {
             ActiveRental ar = it.next();
@@ -53,6 +55,8 @@ public class RentalService {
                 System.out.println(ar);
             }
         }
+    }
+    public void simulateApplicationInput() {
     }
 }
 

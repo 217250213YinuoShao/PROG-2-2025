@@ -7,6 +7,16 @@ public class UserService {
 
     List<RegisteredUsers> registeredUsersList = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
+    public RegisteredUsers addNewUsers(String userType, String fullName, String emailAddress,String dateOfBirth,String cardNumber,String cardExpiryDate,String cardProvider,String cvv,String[]lastThreeTrips) {
+    RegisteredUsers newUser;
+    if (userType.equalsIgnoreCase("VIP")) {
+        newUser = new VIPUser(fullName, emailAddress);
+    } else {
+        newUser = new RegularUser(fullName, emailAddress);
+    }
+    registeredUsersList.add(newUser);
+    return newUser;
+}
 
     public void addNewUsers() {
         System.out.println("\n--- Add New Users ---");
@@ -56,8 +66,7 @@ public class UserService {
                         ", Feedback: " + feedback;
             }
 
-            RegisteredUsers newUser = new RegisteredUsers(
-                    fullName, email, dob, cardNum, cardExp, cardPro, cvv, userType, lastThreeTrips);
+            RegisteredUsers newUser = new RegisteredUsers(fullName, email);
             registeredUsersList.add(newUser);
             System.out.println("User " + (i + 1) + " added successfully!");
         }
